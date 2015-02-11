@@ -1,1 +1,16 @@
-/build
+/nbandroid/
+/bin/
+.classpath
+local.properties
+.project
+/builds/
+build.xml
+/gen/
+lint.xml
+*bin/
+*git/
+.gradle
+*build/
+.*
+*.iml
+/library-projects
