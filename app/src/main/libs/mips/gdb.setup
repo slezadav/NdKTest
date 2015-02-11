@@ -1,0 +1,2 @@
+set solib-search-path C:/DEVTEMP/NdkTest/app/src/main//obj/local/mips
+directory C:/ndk/platforms/android-9/arch-mips/usr/include C:/ndk/sources/cxx-stl/gnu-libstdc++ C:/ndk/sources/cxx-stl/gnu-libstdc++/4.8/include C:/ndk/sources/cxx-stl/gnu-libstdc++/4.8/libs/mips/include C:/ndk/sources/cxx-stl/gnu-libstdc++/4.8/include/backward C:/DEVTEMP/NdkTest/app/src/main//jni
