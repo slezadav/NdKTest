@@ -1,4 +1,4 @@
-import org.apache.tools.ant.taskdefs.condition.Os
+
 
 apply plugin: 'com.android.application'
 android {
@@ -11,18 +11,18 @@ android {
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
-//        ndk {
-//            moduleName "main"
-//            stl 'gnustl_static'
-//            ldLibs "log"
-//        }
-    }
-    sourceSets {
-        main {
-            jni.srcDirs = []
-            jniLibs.srcDir 'src/main/libs'
+        ndk {
+            moduleName "main"
+            stl 'gnustl_static'
+            ldLibs "log"
         }
     }
+//    sourceSets {
+//        main {
+//            jni.srcDirs = []
+//            jniLibs.srcDir 'src/main/libs'
+//        }
+//    }
 
     buildTypes {
         release {
@@ -37,17 +37,17 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:21.0.3'
 }
-
-task ndkBuild(type: Exec) {
-    def ndkDir = android.plugin.ndkFolder
-    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-        commandLine "$ndkDir\\ndk-build.cmd",'-C', file('src/main/jni').absolutePath,'-j', Runtime.runtime.availableProcessors(),'all','-d','NDK_DEBUG=1'
-    }
-    else {
-        commandLine "$ndkDir/ndk-build.cmd",'-C', file('src/main/jni').absolutePath,'-j', Runtime.runtime.availableProcessors(),'all','-d','NDK_DEBUG=1'
-    }
-}
-
-tasks.withType(JavaCompile) {
-    compileTask -> compileTask.dependsOn ndkBuild
-}
+//import org.apache.tools.ant.taskdefs.condition.Os
+//task ndkBuild(type: Exec) {
+//    def ndkDir = android.plugin.ndkFolder
+//    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+//        commandLine "$ndkDir\\ndk-build.cmd",'-C', file('src/main/jni').absolutePath,'-j', Runtime.runtime.availableProcessors(),'all','-d','NDK_DEBUG=1'
+//    }
+//    else {
+//        commandLine "$ndkDir/ndk-build.cmd",'-C', file('src/main/jni').absolutePath,'-j', Runtime.runtime.availableProcessors(),'all','-d','NDK_DEBUG=1'
+//    }
+//}
+//
+//tasks.withType(JavaCompile) {
+//    compileTask -> compileTask.dependsOn ndkBuild
+//}
