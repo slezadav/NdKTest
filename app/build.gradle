@@ -6,7 +6,7 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "test.seznam.cz.ndktest"
+        applicationId "com.github.slezadav.ndktest"
         minSdkVersion 15
         targetSdkVersion 21
         versionCode 1
